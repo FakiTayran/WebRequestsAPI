@@ -21,7 +21,7 @@ namespace WebRequestsAPI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [HttpPost]
+        [HttpPost("CreateShowCase")]
         public async Task<IActionResult> CreateShowCase([FromForm]ShowCaseDto showCaseDto) 
         {
             var client = _httpClientFactory.CreateClient();

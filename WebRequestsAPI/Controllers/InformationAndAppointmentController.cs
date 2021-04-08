@@ -21,7 +21,7 @@ namespace WebRequestsAPI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [HttpPost]
+        [HttpPost("CreateInformationAndAppointment")]
         public async Task<IActionResult> CreateInformationAndAppointment([FromForm]InformationAndAppointmentDto informationAndAppointmentDto) 
         {
             var client = _httpClientFactory.CreateClient();

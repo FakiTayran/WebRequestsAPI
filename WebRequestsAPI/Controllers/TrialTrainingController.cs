@@ -21,7 +21,7 @@ namespace WebRequestsAPI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [HttpPost]
+        [HttpPost("CreateTrialTraining")]
         public async Task<IActionResult> CreateTrialTraining([FromForm]TrialTrainingDto trialTrainingDto) 
         {
             if (!ModelState.IsValid)

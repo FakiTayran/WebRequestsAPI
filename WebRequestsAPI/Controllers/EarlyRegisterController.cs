@@ -21,7 +21,7 @@ namespace WebRequestsAPI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [HttpPost]
+        [HttpPost("CreateEarlyRegister")]
         public async Task<IActionResult> CreateEarlyRegister([FromForm]EarlyRegisterDto earlyRegisterDto) 
         {
             if (!ModelState.IsValid)
