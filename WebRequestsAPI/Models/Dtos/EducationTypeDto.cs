@@ -7,7 +7,7 @@ namespace WebRequestsAPI.Models.Dtos
 {
     public class EducationTypeDto
     {
-        public int Id { get; set; }
+        public int EducationTypeId { get; set; }
 
         public string EducationTypeName { get; set; }
     }
