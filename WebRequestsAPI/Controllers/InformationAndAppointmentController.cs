@@ -22,23 +22,19 @@ namespace WebRequestsAPI.Controllers
             _httpClientFactory = httpClientFactory;
         }
         [HttpPost("CreateInformationAndAppointment")]
-        public async Task<IActionResult> CreateInformationAndAppointment([FromForm]InformationAndAppointmentDto informationAndAppointmentDto) 
+        public async Task<IActionResult> CreateInformationAndAppointment([FromForm] InformationAndAppointmentDto informationAndAppointmentDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(informationAndAppointmentDto);
             var data = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            if (informationAndAppointmentDto.RequestType == Models.Enums.RequestType.Enterprise)
+            if (!ModelState.IsValid)
             {
-                await client.PostAsync("fowURL", data);
-                return Ok();
-            }
-            else if (informationAndAppointmentDto.RequestType == Models.Enums.RequestType.Personal)
-            {
-                await client.PostAsync("baseURL", data);
-                return Ok();
+                return BadRequest();
             }
 
-            return BadRequest();
-        } 
+            await client.PostAsync("baseURL", data);
+            return Ok();
+
+        }
     }
 }
